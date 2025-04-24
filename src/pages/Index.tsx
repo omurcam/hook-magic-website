@@ -1,13 +1,17 @@
+
 import { useState } from "react";
 import HookButton from "@/components/HookButton";
 import { useToast } from "@/components/ui/use-toast";
 import MatrixRain from "@/components/ui/matrix-rain";
+import useSound from "@/hooks/useSound";
 
 const Index = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const { playButtonSound } = useSound();
 
   const handleHookSuggestion = (type: "interaction" | "sales") => {
+    playButtonSound();
     setIsLoading(true);
     
     // Simüle edilmiş hook önerileri
